@@ -564,8 +564,21 @@ export default class CalendarStrip extends Component {
         calendarHeaderStyle={this.props.calendarHeaderStyle}
         datesForWeek={this.state.datesForWeek}
         fontSize={this.state.monthFontSize}
+        selectorSize={this.state.selectorSize}
+        minDate={this.props.minDate}
+        maxDate={this.props.maxDate}
+        leftSelector={this.props.leftSelector}
+        rightSelector={this.props.rightSelector}
+        iconContainer={this.props.iconContainer}
+        iconLeftStyle={this.props.iconLeftStyle}
+        iconRightStyle={this.props.iconRightStyle}
+        iconStyle={this.props.iconStyle}
+        iconLeft={this.props.iconLeft}
+        iconRight={this.props.iconRight}
+        getPreviousWeek={this.getPreviousWeek}
+        getNextWeek={this.getNextWeek}
       />;
-
+ 
     // calendarHeader renders above the dates & left/right selectors if dates are shown.
     // However if dates are hidden, the header shows between the left/right selectors.
     return (
@@ -582,7 +595,7 @@ export default class CalendarStrip extends Component {
         >
           {this.props.showDate && calendarHeader}
           <View style={styles.datesStrip}>
-            <WeekSelector
+            {/* <WeekSelector
               controlDate={this.props.minDate}
               iconComponent={this.props.leftSelector}
               iconContainerStyle={this.props.iconContainer}
@@ -595,7 +608,7 @@ export default class CalendarStrip extends Component {
               }
               weekStartDate={this.state.datesForWeek[0]}
               size={this.state.selectorSize}
-            />
+            /> */}
 
             {this.props.showDate
               ? <View style={styles.calendarDates}>
@@ -603,7 +616,7 @@ export default class CalendarStrip extends Component {
                 </View>
               : calendarHeader}
 
-            <WeekSelector
+            {/* <WeekSelector
               controlDate={this.props.maxDate}
               iconComponent={this.props.rightSelector}
               iconContainerStyle={this.props.iconContainer}
@@ -616,7 +629,7 @@ export default class CalendarStrip extends Component {
               }
               weekStartDate={this.state.datesForWeek[0]}
               size={this.state.selectorSize}
-            />
+            /> */}
           </View>
         </View>
       </View>
