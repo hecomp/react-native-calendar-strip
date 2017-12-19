@@ -152,15 +152,15 @@ export default class CalendarDay extends Component {
             : "transparent";
           dateViewStyle = { backgroundColor: dateViewBGColor };
           break;
-//         case "border":
-//           let dateViewBorderWidth = this.state.selected
-//             ? this.props.daySelectionAnimation.borderWidth
-//             : 0;
-//           dateViewStyle = {
-//             // borderColor: this.props.daySelectionAnimation.borderHighlightColor,
-//             // borderWidth: dateViewBorderWidth
-//           };
-//           break;
+        case "border":
+          let dateViewBorderWidth = this.state.selected
+            ? this.props.daySelectionAnimation.borderWidth
+            : 0;
+          dateViewStyle = {
+            // borderColor: this.props.daySelectionAnimation.borderHighlightColor,
+            // borderWidth: dateViewBorderWidth
+          };
+          break;
         default:
           // No animation styling by default
           break;
