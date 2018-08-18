@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Text } from "react-native";
+import { Text,View } from "react-native";
 
 import styles from "./Calendar.style.js";
+import WeekSelector from "./WeekSelector";
 
 class CalendarHeader extends Component {
   static propTypes = {
@@ -63,7 +64,23 @@ class CalendarHeader extends Component {
       this.props.datesForWeek,
       this.props.calendarHeaderFormat
     );
-    return (
+    return ( 
+      <View style={[styles.calendarDates,]}>
+      <WeekSelector
+        controlDate={this.props.minDate}
+        iconComponent={this.props.leftSelector}
+        iconContainerStyle={this.props.iconContainer}
+        iconInstanceStyle={this.props.iconLeftStyle}
+        iconStyle={this.props.iconStyle}
+        imageSource={this.props.iconLeft}
+        onPress={this.props.getPreviousWeek}
+        weekEndDate={
+          this.props.datesForWeek[this.props.datesForWeek.length - 1]
+        }
+        weekStartDate={this.props.datesForWeek[0]}
+        size={this.props.selectorSize}
+      />
+
       <Text
         style={[
           styles.calendarHeader,
@@ -73,6 +90,22 @@ class CalendarHeader extends Component {
       >
         {headerText}
       </Text>
+
+      <WeekSelector
+        controlDate={this.props.maxDate}
+        iconComponent={this.props.rightSelector}
+        iconContainerStyle={this.props.iconContainer}
+        iconInstanceStyle={this.props.iconRightStyle}
+        iconStyle={this.props.iconStyle}
+        imageSource={this.props.iconRight}
+        onPress={this.props.getNextWeek}
+        weekEndDate={
+          this.props.datesForWeek[this.props.datesForWeek.length - 1]
+        }
+        weekStartDate={this.props.datesForWeek[0]}
+        size={this.props.selectorSize}
+      />
+    </View>
     );
   }
 }
